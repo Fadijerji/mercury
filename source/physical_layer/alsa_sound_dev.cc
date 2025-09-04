@@ -122,11 +122,11 @@ int cl_alsa_sound_device::_init()
 	snd_pcm_hw_params_t *configuration_parameters;
 	if(type==PLAY)
 	{
-		_error = snd_pcm_open(&_dev_ptr, dev_name.c_str(), SND_PCM_STREAM_PLAYBACK, SND_PCM_NONBLOCK || SND_PCM_ASYNC);
+		_error = snd_pcm_open(&_dev_ptr, dev_name.c_str(), SND_PCM_STREAM_PLAYBACK, SND_PCM_NONBLOCK | SND_PCM_ASYNC);
 	}
 	else if (type==CAPTURE)
 	{
-		_error = snd_pcm_open(&_dev_ptr, dev_name.c_str(), SND_PCM_STREAM_CAPTURE, SND_PCM_NONBLOCK || SND_PCM_ASYNC);
+		_error = snd_pcm_open(&_dev_ptr, dev_name.c_str(), SND_PCM_STREAM_CAPTURE, SND_PCM_NONBLOCK | SND_PCM_ASYNC);
 	}
 	if(_error<0)
 	{
