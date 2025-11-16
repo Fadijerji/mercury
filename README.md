@@ -4,8 +4,8 @@ Mercury is a configurable open-source software-defined modem.
 
 #Usage:
 
--h ............................Print this help menu.<br />
--version ............................Print Mercurry current version.<br />
+-h ............................Prints this help menu.<br />
+-version ............................Prints Mercury current version.<br />
 -mode [operation mode] ............................ operation mode: ARQ_MODE, TX_TEST, RX_TEST, BER_PLOT_baseband, BER_PLOT_passband.<br />
 -config [robustness configuration] ............................  config: 0 to 16.<br />
 -input [ALSA microphone device] ............................     ALSA microphone device: (eg: "plughw:0,0").<br />

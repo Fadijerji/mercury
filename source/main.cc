@@ -50,7 +50,8 @@ int main(int argc, char *argv[])
 
 		if (arg  == "-h" || arg  == "-help")
 		{
-			std::cout<<"-version"<<std::endl;
+			std::cout<<"-h|-help"<<"                            Prints this help menu."<<std::endl;
+			std::cout<<"-version"<<"                            Prints Mercury current version."<<std::endl;
 			std::cout<<"-mode [operation mode]"<<"              operation mode: ARQ_MODE, TX_TEST, RX_TEST, BER_PLOT_baseband, BER_PLOT_passband."<<std::endl;
 
 			std::cout<<"-config [robustness configuration]"<<"  config: 0 to 16."<<std::endl;
@@ -61,8 +62,8 @@ int main(int argc, char *argv[])
 
 			std::cout<<"-port [ARQ data port] "<<"              ARQ control port: TCP port."<<std::endl;
 
-			std::cout<<"-gearshift"<<std::endl;
-			std::cout<<"-plot"<<std::endl;
+			std::cout<<"-gearshift"<<"                          Activates gearshift."<<std::endl;
+			std::cout<<"-plot"<<"                               Activates constellation and BER report plot."<<std::endl;
 
 			std::cout<<std::endl;
 
