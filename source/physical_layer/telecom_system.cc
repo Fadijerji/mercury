@@ -73,9 +73,10 @@ cl_telecom_system::~cl_telecom_system()
 cl_error_rate cl_telecom_system::baseband_test_EsN0(float EsN0,int max_frame_no)
 {
 	cl_error_rate lerror_rate;
-	float power_normalization=sqrt((double)ofdm.Nfft);
-	float sigma=1.0/sqrt(pow(10,(EsN0/10)));
-	float variance=1.0/(pow(10,(EsN0/10)));
+	float power_normalization=sqrt((double)ofdm.Nc);
+	float SNR=EsN0+10*log10(((double)ofdm.Nc/(double)ofdm.Nfft));
+	float sigma=1.0/sqrt(pow(10,(SNR/10)));
+	float variance=1.0/(pow(10,(SNR/10)));
 	int nVirtual_data;
 	int nReal_data;
 	int delay=0;
@@ -208,7 +209,8 @@ cl_error_rate cl_telecom_system::baseband_test_EsN0(float EsN0,int max_frame_no)
 cl_error_rate cl_telecom_system::passband_test_EsN0(float EsN0,int max_frame_no)
 {
 	cl_error_rate lerror_rate;
-	float sigma=1.0/sqrt(pow(10,(EsN0/10)));
+	float SNR=EsN0+10*log10(((double)ofdm.Nc/(double)ofdm.Nfft));
+	float sigma=1.0/sqrt(pow(10,(SNR/10)));
 	int nReal_data=data_container.nBits-ldpc.P;
 	int delay=0;
 
@@ -301,7 +303,7 @@ void cl_telecom_system::transmit_bit(const int* data, double* out, int message_l
 {
 	int nVirtual_data=ldpc.N-data_container.nBits;
 	int nReal_data=data_container.nBits-ldpc.P;
-	float power_normalization=sqrt((double)(ofdm.Nfft*frequency_interpolation_rate));
+	float power_normalization=sqrt((double)(ofdm.Nc*frequency_interpolation_rate));
 
 	for(int i=0;i<nReal_data;i++)
 	{
