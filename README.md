@@ -2,6 +2,21 @@
 
 Mercury is a configurable open-source software-defined modem.
 
+#Usage:
+
+-h ............................Print this help menu.<br />
+-version ............................Print Mercurry current version.<br />
+-mode [operation mode] ............................ operation mode: ARQ_MODE, TX_TEST, RX_TEST, BER_PLOT_baseband, BER_PLOT_passband.<br />
+-config [robustness configuration] ............................  config: 0 to 16.<br />
+-input [ALSA microphone device] ............................     ALSA microphone device: (eg: "plughw:0,0").<br />
+-output [ALSA speaker device]    ............................   ALSA speaker device: (eg: "plughw:0,0").<br />
+-port [ARQ data port]  ............................  ARQ control port: TCP port.<br />
+-gearshift			............................ 				Activates gearshift.<br />
+-plot				............................ 			Activates constellation and BER report plot.<br />
+
+Usage Example: mercury -mode RX_TEST -config 0  -input "plughw:0,0" -output "plughw:0,0" -plot<br />
+
+
 #What's new in Mercury 0.2:
 
 - New Least Square channel estimator with a configurable estimation window.
@@ -267,7 +282,7 @@ To install GraphViz run the following command as root: 'apt-get install graphviz
 
 To compile the Mercury code, run the following:
 
-g++ ./source/physical_layer/*.cc ./source/datalink_layer/*.cc ./source/*.cc  -I ./include -lasound -o mercury
+g++ -O3 -g0 ./source/physical_layer/*.cc ./source/datalink_layer/*.cc ./source/*.cc  -I ./include -lasound -o mercury
 
 To generate the Mercury documentation, run the following:
 
