@@ -502,7 +502,7 @@ st_receive_stats cl_telecom_system::receive_byte(const double* data, int* out)
 	ofdm.passband_to_baseband((double*)data,data_container.Nofdm*data_container.buffer_Nsymb*frequency_interpolation_rate,data_container.baseband_data_interpolated,sampling_frequency,carrier_frequency,carrier_amplitude,1,&ofdm.FIR_rx_time_sync);
 	receive_stats.signal_stregth_dbm=ofdm.measure_signal_stregth(data_container.baseband_data_interpolated, data_container.Nofdm*data_container.buffer_Nsymb*frequency_interpolation_rate);
 
-	int step=100;
+	int step=50;
 	receive_stats.delay=ofdm.time_sync_preamble(data_container.baseband_data_interpolated,data_container.Nofdm*(2*data_container.preamble_nSymb+data_container.Nsymb)*frequency_interpolation_rate,data_container.interpolation_rate,0,step, 1);
 	int pream_symb_loc=receive_stats.delay/(data_container.Nofdm*data_container.interpolation_rate);
 	if(pream_symb_loc<1){pream_symb_loc=1;}
