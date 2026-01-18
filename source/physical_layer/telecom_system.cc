@@ -303,7 +303,8 @@ void cl_telecom_system::transmit_bit(const int* data, double* out, int message_l
 {
 	int nVirtual_data=ldpc.N-data_container.nBits;
 	int nReal_data=data_container.nBits-ldpc.P;
-	float power_normalization=sqrt((double)(ofdm.Nc*frequency_interpolation_rate));
+	float power_normalization_data=sqrt((double)(ofdm.Nc));
+	float power_normalization_preamble=sqrt((double)((ofdm.Nc-1)/2));
 
 	for(int i=0;i<nReal_data;i++)
 	{
@@ -363,13 +364,13 @@ void cl_telecom_system::transmit_bit(const int* data, double* out, int message_l
 
 	for(int j=0;j<data_container.Nofdm*data_container.preamble_nSymb;j++)
 	{
-		data_container.preamble_symbol_modulated_data[j]/=power_normalization;
+		data_container.preamble_symbol_modulated_data[j]/=power_normalization_preamble;
 		data_container.preamble_symbol_modulated_data[j]*=sqrt(output_power_Watt)*ofdm.preamble_configurator.boost;
 	}
 
 	for(int j=0;j<data_container.Nofdm*data_container.Nsymb;j++)
 	{
-		data_container.ofdm_symbol_modulated_data[j]/=power_normalization;
+		data_container.ofdm_symbol_modulated_data[j]/=power_normalization_data;
 		data_container.ofdm_symbol_modulated_data[j]*=sqrt(output_power_Watt);
 	}
 
