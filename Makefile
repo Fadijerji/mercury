@@ -28,9 +28,9 @@ $(BUILD_DIR)/%.cc.o: %.cc
 
 
 install: mercury
-
+	echo "Installing Mercury."
 	cp $(BUILD_DIR)/$(TARGET) /bin
-
+	echo "Installing Mercury is done."
 doc:
 	echo "Building Mercury's documentation."
 	doxygen ./mercury.doxyfile
@@ -39,4 +39,5 @@ doc:
 
 .PHONY: clean
 clean:
+	echo "Cleaning Mercury."
 	rm -r $(BUILD_DIR)
