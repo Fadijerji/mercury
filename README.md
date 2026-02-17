@@ -284,6 +284,10 @@ To compile the Mercury code, run the following:
 
 make
 
+To compile and install Mercury binaries, run the following:
+
+make install
+
 To generate the Mercury documentation, run the following:
 
 make doc

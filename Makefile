@@ -27,8 +27,9 @@ $(BUILD_DIR)/%.cc.o: %.cc
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
 
 
-install:
+install: mercury
 
+	cp $(BUILD_DIR)/$(TARGET) /bin
 
 doc:
 	echo "Building Mercury's documentation."
