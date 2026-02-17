@@ -282,12 +282,11 @@ To install GraphViz run the following command as root: 'apt-get install graphviz
 
 To compile the Mercury code, run the following:
 
-g++ -O3 -g0 ./source/physical_layer/*.cc ./source/datalink_layer/*.cc ./source/*.cc  -I ./include -lasound -o mercury
+make
 
 To generate the Mercury documentation, run the following:
 
-doxygen ./mercury.doxyfile
-cp ./docs_FSM/*.png html
+make doc
 
 
 
