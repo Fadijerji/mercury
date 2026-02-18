@@ -259,21 +259,21 @@ Mercury operates in one of six different modes:
 
 In case of switching  telecom_system.plot.plot_active to YES, the gnuplot is required to be installed on the machine.
 
-To install GNU plot run the following command as root: 'apt-get install gnuplot-x11'.
+To install GNU plot run the following command as root: '`apt-get install gnuplot-x11`'.
 
 * ALSA Sound
 
 To use the sound card via ALSA Sound library, the library should be installed and linked to the code at compilation.
 
-To install ALSA Sound run the following command as root: 'apt-get install libasound2-dev'.
+To install ALSA Sound run the following command as root: '`apt-get install libasound2-dev`'.
 
 * Documentation
 
 To generate the documentation, the Doxygen and GraphViz packets should be installed.
 
-To install Doxygen run the following command as root: 'apt-get install doxygen'.
+To install Doxygen run the following command as root: '`apt-get install doxygen`'.
 
-To install GraphViz run the following command as root: 'apt-get install graphviz'.
+To install GraphViz run the following command as root: '`apt-get install graphviz`'.
 
 
 
@@ -282,16 +282,21 @@ To install GraphViz run the following command as root: 'apt-get install graphviz
 
 To compile the Mercury code, run the following:
 
+```
 make
+```
 
 To compile and install Mercury binaries, run the following:
 
+```
 make install
+```
 
 To generate the Mercury documentation, run the following:
 
+```
 make doc
-
+```
 
 
 ## include
